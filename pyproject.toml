@@ -5,6 +5,7 @@ description = "Davfl solutions for Advent of Code 2025"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "adventofcode>=25.0",
     "pytest>=9.0.1",
     "typer>=0.20.0",
 ]

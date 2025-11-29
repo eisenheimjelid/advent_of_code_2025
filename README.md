@@ -12,3 +12,5 @@ journey, the community, and the satisfaction of solving complex problems.
 
 Follow along as I document my progress, frustrations, and breakthroughs in this
 repository throughout the month!
+
+I'm using <https://pypi.org/project/adventofcode/> for the scaffolding.

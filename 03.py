@@ -15,37 +15,31 @@ def part1(inp: str) -> str | int | None:
     return result
 
 
+def num(m, ns):
+    for n in ns:
+        m *= 10
+        m += n
+    return m
+
+
 def part2(inp: str) -> str | int | None:
     result = 0
-    for comb in inp.splitlines():
-        greater = 0
-        for i in range(0, len(str(comb))):
-            d11 = str(comb)[i]
-            for j in range(i+1, len(str(comb))):
-                d22 = str(comb)[j]
-                for k in range(j+1, len(str(comb))):
-                    d33 = str(comb)[k]
-                    for l in range(k+1, len(str(comb))):
-                        d44 = str(comb)[l]
-                        for m in range(l+1, len(str(comb))):
-                            d55 = str(comb)[m]
-                            for n in range(m+1, len(str(comb))):
-                                d66 = str(comb)[n]
-                                for o in range(n+1, len(str(comb))):
-                                    d77 = str(comb)[o]
-                                    for p in range(o+1, len(str(comb))):
-                                        d88 = str(comb)[p]
-                                        for q in range(p+1, len(str(comb))):
-                                            d99 = str(comb)[q]
-                                            for r in range(q+1, len(str(comb))):
-                                                d10 = str(comb)[r]
-                                                for s in range(r+1, len(str(comb))):
-                                                    d12 = str(comb)[s]
-                                                    for t in range(s+1, len(str(comb))):
-                                                        d13 = str(comb)[t]
-                                                        if int("".join([d11, d22, d33, d44, d55, d66, d77, d88, d99, d10, d12, d13])) > greater:
-                                                            greater = int("".join([d11, d22, d33, d44, d55, d66, d77, d88, d99, d10, d12, d13]))
-        result += greater
+    for line in inp.splitlines():
+        xs = [int(c) for c in line.rstrip()]
+
+        m = max(xs[:-1])
+
+        m = max(xs[:-11])
+        mi = xs.index(m)
+        ns = xs[mi+1:mi+12]
+        for x in xs[mi+12:]:
+            n = num(m, ns)
+            for i in range(0, 11):
+                ns2 = ns[:i] + ns[i+1:] + [x]
+                if n < num(m, ns2):
+                    ns = ns2
+                    break
+        result += num(m, ns)
     return result
 
 
@@ -254,6 +248,6 @@ expected_result = 16858
 aoc.assert_p1(inp, expected_result)
 aoc.submit_p1()
 
-expected_result = 0
+expected_result = 167549941654721
 aoc.assert_p2(inp, expected_result)
 aoc.submit_p2()

@@ -1,80 +1,10 @@
-from adventofcode import AoC
+"""🎄 Solution for Day 1 of Advent of Code 2025 🎄
 
+Usage:
 
-def part1(inp: str) -> str | int | None:
-    num_list = [i for i in range(1,100)]
-    cursor = 50 # Starting point at 50
-    result = 0
+uv run adventofcode run 01.py
+"""
 
-    for instr in inp.splitlines():
-        zero = None
-        line = instr[:-1]
-        distance = int(instr[1:]) % 100
-        if line[0] == 'L':
-            if cursor < distance:
-                move = cursor - distance
-            elif cursor > distance:
-                move = (cursor - distance) - 1
-            else:
-                zero = True
-
-        if line[0] == 'R':
-            if (cursor + distance) == 100:
-                zero = True
-            elif (cursor + distance) < 100:
-                move = (cursor + distance) -1
-            elif (cursor + distance) > 100:
-                move = (cursor + distance) - 101
-
-        if not zero:
-            cursor = num_list[move]
-        elif zero:
-            result += 1
-            cursor = 0
-    return result
-
-
-def part2(inp: str) -> str | int | None:
-    num_list = [i for i in range(1,100)]
-    zero = None
-    cursor = 50
-    result = 0
-
-    for instr in inp.splitlines():
-        zero = None
-        line = instr[:-1]
-        if int(instr[1:]) >= 100:
-            total_times = int(instr[1:]) // 100
-            result += total_times
-        distance = int(instr[1:]) % 100
-        if line[0] == 'L':
-            if cursor < distance:
-                move = cursor - distance
-                if cursor != 0:
-                    result += 1
-            elif cursor > distance:
-                move = (cursor - distance) - 1
-            else:
-                zero = True
-
-        if line[0] == 'R':
-            if (cursor + distance) == 100:
-                zero = True
-            elif (cursor + distance) < 100:
-                move = (cursor + distance) -1
-            elif (cursor + distance) > 100:
-                move = (cursor + distance) - 101
-                result += 1
-
-        if not zero:
-            cursor = num_list[move]
-        elif zero:
-            result += 1
-            cursor = 0
-    return result
-
-
-aoc = AoC(part_1=part1, part_2=part2)
 inp = """R46
 L11
 R26
@@ -4852,10 +4782,82 @@ R33
 R32
 L34
 R31"""
-expected_result = 1168
-aoc.assert_p1(inp, expected_result)
-aoc.submit_p1()
+part1_asserts = [
+    (inp, 1168),
+]
+part2_asserts = [
+    (inp, 7199),
+]
 
-expected_result = 7199
-aoc.assert_p2(inp, expected_result)
-aoc.submit_p2()
+
+def part1(inp: str) -> str | int | None:
+    num_list = [i for i in range(1, 100)]
+    cursor = 50  # Starting point at 50
+    result = 0
+
+    for instr in inp.splitlines():
+        zero = None
+        line = instr[:-1]
+        distance = int(instr[1:]) % 100
+        if line[0] == 'L':
+            if cursor < distance:
+                move = cursor - distance
+            elif cursor > distance:
+                move = (cursor - distance) - 1
+            else:
+                zero = True
+
+        if line[0] == 'R':
+            if (cursor + distance) == 100:
+                zero = True
+            elif (cursor + distance) < 100:
+                move = (cursor + distance) -1
+            elif (cursor + distance) > 100:
+                move = (cursor + distance) - 101
+
+        if not zero:
+            cursor = num_list[move]
+        elif zero:
+            result += 1
+            cursor = 0
+    return result
+
+
+def part2(inp: str) -> str | int | None:
+    num_list = [i for i in range(1, 100)]
+    zero = None
+    cursor = 50
+    result = 0
+
+    for instr in inp.splitlines():
+        zero = None
+        line = instr[:-1]
+        if int(instr[1:]) >= 100:
+            total_times = int(instr[1:]) // 100
+            result += total_times
+        distance = int(instr[1:]) % 100
+        if line[0] == 'L':
+            if cursor < distance:
+                move = cursor - distance
+                if cursor != 0:
+                    result += 1
+            elif cursor > distance:
+                move = (cursor - distance) - 1
+            else:
+                zero = True
+
+        if line[0] == 'R':
+            if (cursor + distance) == 100:
+                zero = True
+            elif (cursor + distance) < 100:
+                move = (cursor + distance) - 1
+            elif (cursor + distance) > 100:
+                move = (cursor + distance) - 101
+                result += 1
+
+        if not zero:
+            cursor = num_list[move]
+        elif zero:
+            result += 1
+            cursor = 0
+    return result

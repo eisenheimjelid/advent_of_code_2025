@@ -1,49 +1,10 @@
-from adventofcode import AoC
+"""🎄 Solution for Day 3 of Advent of Code 2025 🎄
 
+Usage:
 
-def part1(inp: str) -> str | int | None:
-    result = 0
-    for comb in inp.splitlines():
-        greater = 0
-        for i in range(0, len(str(comb))):
-            dfirst = str(comb)[i]
-            for j in range(i+1, len(str(comb))):
-                dsecond = str(comb)[j]
-                if int("{0}{1}".format(dfirst, dsecond)) > greater:
-                    greater = int("{0}{1}".format(dfirst, dsecond))
-        result += greater
-    return result
+uv run adventofcode run 03.py
+"""
 
-
-def num(m, ns):
-    for n in ns:
-        m *= 10
-        m += n
-    return m
-
-
-def part2(inp: str) -> str | int | None:
-    result = 0
-    for line in inp.splitlines():
-        xs = [int(c) for c in line.rstrip()]
-
-        m = max(xs[:-1])
-
-        m = max(xs[:-11])
-        mi = xs.index(m)
-        ns = xs[mi+1:mi+12]
-        for x in xs[mi+12:]:
-            n = num(m, ns)
-            for i in range(0, 11):
-                ns2 = ns[:i] + ns[i+1:] + [x]
-                if n < num(m, ns2):
-                    ns = ns2
-                    break
-        result += num(m, ns)
-    return result
-
-
-aoc = AoC(part_1=part1, part_2=part2)
 inp = """3733444444337244341463452463644234493354144584433344425444453534454444343444324335454446423343444472
 2132222341224222411125222222212223222221232222222222123222122212226221222142212222122322142111225142
 2122212312232311132122141422211224222223221221112212222321322221171222222214222121222212151132122311
@@ -244,10 +205,51 @@ inp = """37334444443372443414634524636442344933541445844333444254444535344544443
 3472932146352522227246273922231235523334323458559771542346247222248322126253623264234563521323232655
 3256252322261223323127512122536252866221526241232354218212242217441723212512252121228225451212122172
 4454425455874535433555555555244573258234554234674852455545555562255553454356434277455446544934364333"""
-expected_result = 16858
-aoc.assert_p1(inp, expected_result)
-aoc.submit_p1()
+part1_asserts = [
+    (inp, 16858),
+]
+part2_asserts = [
+    (inp, 167549941654721),
+]
 
-expected_result = 167549941654721
-aoc.assert_p2(inp, expected_result)
-aoc.submit_p2()
+
+def part1(inp: str) -> str | int | None:
+    result = 0
+    for comb in inp.splitlines():
+        greater = 0
+        for i in range(0, len(str(comb))):
+            dfirst = str(comb)[i]
+            for j in range(i+1, len(str(comb))):
+                dsecond = str(comb)[j]
+                if int("{0}{1}".format(dfirst, dsecond)) > greater:
+                    greater = int("{0}{1}".format(dfirst, dsecond))
+        result += greater
+    return result
+
+
+def num(m, ns):
+    for n in ns:
+        m *= 10
+        m += n
+    return m
+
+
+def part2(inp: str) -> str | int | None:
+    result = 0
+    for line in inp.splitlines():
+        xs = [int(c) for c in line.rstrip()]
+
+        m = max(xs[:-1])
+
+        m = max(xs[:-11])
+        mi = xs.index(m)
+        ns = xs[mi+1:mi+12]
+        for x in xs[mi+12:]:
+            n = num(m, ns)
+            for i in range(0, 11):
+                ns2 = ns[:i] + ns[i+1:] + [x]
+                if n < num(m, ns2):
+                    ns = ns2
+                    break
+        result += num(m, ns)
+    return result

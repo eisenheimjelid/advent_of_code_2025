@@ -1073,7 +1073,7 @@ def part2(inp: str) -> str | int | None:
     circuits = [{n} for n in range(ncoords)]
 
     def cfind(n):
-        for i,circuit in enumerate(circuits):
+        for i, circuit in enumerate(circuits):
             if n in circuit:
                 return i
         return None

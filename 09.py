@@ -592,7 +592,8 @@ def part1(inp: str) -> str | int | None:
         for p2 in corners:
             if p2 == p1:
                 continue
-            result = max(result, (abs(p2.x - p1.x) + 1) * (abs(p2.y - p1.y) + 1))
+            result = max(result,
+                         (abs(p2.x - p1.x) + 1) * (abs(p2.y - p1.y) + 1))
     return result
 
 

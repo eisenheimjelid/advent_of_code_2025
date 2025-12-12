@@ -153,7 +153,7 @@ part1_asserts = [
     (inp, 1543),
 ]
 part2_asserts = [
-    (inp, -1),
+    (inp, 3223365367809),
 ]
 
 

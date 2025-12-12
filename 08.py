@@ -5,8 +5,6 @@ Usage:
 uv run adventofcode run 08.py
 """
 
-import numpy as np
-
 inp = """96616,810,75978
 47,21512,72240
 37204,32405,96978
@@ -1068,7 +1066,7 @@ def part2(inp: str) -> str | int | None:
             dx = (coords[c1][0] - coords[c2][0]) ** 2
             dy = (coords[c1][1] - coords[c2][1]) ** 2
             dz = (coords[c1][2] - coords[c2][2]) ** 2
-            distances.append([dx + dy + dz, [c1,c2]])
+            distances.append([dx + dy + dz, [c1, c2]])
     distances.sort(reverse=True)
 
     # Initially all circuits are a single coord

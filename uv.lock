@@ -23,7 +23,7 @@ requires-dist = [
 
 [[package]]
 name = "adventofcode"
-version = "25.11"
+version = "25.12"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "beautifulsoup4" },
@@ -32,9 +32,9 @@ dependencies = [
     { name = "requests" },
     { name = "rich" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/58/d1/f1190c49d1bb8d289ade2bcfe4613d7ed8c2b2ba2e62c262cf15f504e3a2/adventofcode-25.11.tar.gz", hash = "sha256:c181c42bceb0174ab6129b40e20b0b8345ed2a52f4079c3972943ca7ff699a7d", size = 144092, upload-time = "2025-12-08T09:41:27.326Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/53/90/94f61ae24720ad744bc2e430697b0d894dbb05c191ee6b4c923a4585a954/adventofcode-25.12.tar.gz", hash = "sha256:384bf206c26b1210fd8686c7cd9de1cdf92c0614922def562132b1ce91523302", size = 144166, upload-time = "2025-12-12T06:26:02.997Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0f/0f/dbf3fb3634dbbf52d890a40d5a1450af4eac56d721464cf1d47624a623e6/adventofcode-25.11-py3-none-any.whl", hash = "sha256:15ec7a97bb55eb406d001dfaa55de486133f57bde41648cc1ad8a6767161be91", size = 14036, upload-time = "2025-12-08T09:41:26.192Z" },
+    { url = "https://files.pythonhosted.org/packages/4e/cb/e667359edee33d05220371b2572e152598c0f4d1ff1c7e44bbd54df27253/adventofcode-25.12-py3-none-any.whl", hash = "sha256:9c3aabb1a5c08bef0c325f4873be445057ab4aa4027a8aea031ec91d3cb1c87c", size = 14092, upload-time = "2025-12-12T06:26:01.338Z" },
 ]
 
 [[package]]

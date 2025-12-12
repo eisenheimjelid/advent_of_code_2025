@@ -15,11 +15,15 @@ repository throughout the month!
 
 I'm using <https://pypi.org/project/adventofcode/> for the scaffolding.
 
+## Finished
+
+![Advent of Code 2025](doc/Advent-of-Code-2025-12-12-2025_11_18_AM.png)
+
 ## Benchmark Results
 
 <!-- BENCHMARK_RESULTS_START -->
-| Day | Status | Part 1 Time | Part 2 Time | Total Time | 
-|----:|:------:|------------:|------------:|-----------:| 
+| Day | Status | Part 1 Time | Part 2 Time | Total Time |
+|----:|:------:|------------:|------------:|-----------:|
 | 01 | ✅ | 1.30ms 🟢 | 2.06ms 🟢 | 3.36ms 🟢 |
 | 02 | ✅ | 665.15ms 🟡 | 6.76s 🔴 | 7.43s 🔴 |
 | 03 | ✅ | 230.22ms 🟡 | 48.64ms 🟢 | 278.86ms 🟡 |
@@ -35,8 +39,9 @@ I'm using <https://pypi.org/project/adventofcode/> for the scaffolding.
 | **Total** | | 2.32s 🔴 | 9.71s 🔴 | 12.03s 🔴 |
 
 Legend:
- * 🟢 < 100ms
- * 🟡 100ms - 1s
- * 🔴 > 1s
- * ⚪ Not included in total
+
+* 🟢 < 100ms
+* 🟡 100ms - 1s
+* 🔴 > 1s
+* ⚪ Not included in total
 <!-- BENCHMARK_RESULTS_END -->
